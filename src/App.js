@@ -11,16 +11,25 @@ class App extends Component {
             className="App-logo" 
             alt="logo" />
         </div>
-        <DrumMachine />
+        <SpacePads />
       </div>
     );
   }
 }
 
-class DrumMachine extends Component {
+class SpacePads extends Component {
   
   playSample(event) {
-    event.target.childNodes[0].play();
+    let player = event.target.childNodes[0];
+    !player.paused ? player.pause() : player.play();
+    
+    let background = '#FFFFFF';
+    if (!player.paused) {
+      let hue = Math.floor(Math.random() * 360);
+      let pastel = 'hsl(' + hue + ', 100%, 80%)';
+      background = pastel;
+    }
+    event.target.style.backgroundColor = background;
   };
   
   render() {
@@ -63,7 +72,7 @@ class DrumMachine extends Component {
         </div> 
         <div className="row"> 
           <div className="col-m-4">
-            <button className="fas fa-meteor" id="3" onClick={this.playSample}>
+            <button className="fas fa-robot" id="3" onClick={this.playSample}>
               <audio 
                 src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fabduction-in-alien-waters.wav?v=1579825416598" 
                 type="audio/wav"
@@ -85,7 +94,7 @@ class DrumMachine extends Component {
             </button>
             </div>
           <div className="col-m-4">
-            <button className="fas fa-satellite-dish" id="5" onClick={this.playSample}>
+            <button className="fas fa-meteor" id="5" onClick={this.playSample}>
               <audio 
                 src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fearth-lightning.mp3?v=1579825441590" 
                 type="audio/mpeg"
@@ -98,7 +107,7 @@ class DrumMachine extends Component {
         </div>
         <div className="row">
           <div className="col-m-4">
-            <button className="fas fa-robot" id="6" onClick={this.playSample}>
+            <button className="fas fa-satellite-dish" id="6" onClick={this.playSample}>
               <audio 
                 src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fdescending-plaintive-synth.wav?v=1579825458400" 
                 type="audio/wav"
