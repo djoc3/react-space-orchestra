@@ -13,11 +13,11 @@ button {
   padding: 20px;
   border: none;
   background: none;
-  width: 125px;
+  width: 100px;
 }
 
 #space-pads {
   padding-top: 30px;
-  max-width: 375px;
+  width: 300px;
   margin: 0px auto;
 }
