@@ -16,6 +16,10 @@ button {
   width: 100px;
 }
 
+button:focus {
+  outline:0;
+}
+
 #space-pads {
   padding-top: 30px;
   width: 300px;
