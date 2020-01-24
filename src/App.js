@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -7,9 +6,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <div className="App-header stars">
+          <img src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2F359a7daa-13af-4e9b-a187-75ca74249217_200x200.png?v=1579886316258" 
+            className="App-logo" 
+            alt="logo" />
         </div>
         <DrumMachine />
       </div>
@@ -19,108 +19,96 @@ class App extends Component {
 
 class DrumMachine extends Component {
   
-  componentDidMount() {
-    window.addEventListener("keydown", this.handleKeyPress);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("keydown", this.handleKeyPress);
-  }
-
-  handleKeyPress(event) {
-    document.getElementById(event.key.toUpperCase()).play();
-    var textnode = document.createTextNode(event.target.childNodes[1].title);
-    document.getElementById("display").appendChild(textnode);
-  };
-  
   playSample(event) {
-    event.target.childNodes[1].play();
-    var textnode = document.createTextNode(event.target.childNodes[1].title);
-    document.getElementById("display").appendChild(textnode);
+    event.target.childNodes[0].play();
   };
   
   render() {
     return (
-      <div id="drum-machine" onKeyPress={this.handleKeyPress}>
-        <div id="display">
-          <button className="drum-pad" id="0" onClick={this.playSample}>Q
+      <div id="space-pads">
+        <div className="row">
+          <button className="fas fa-user-astronaut" id="0" onClick={this.playSample}>
             <audio 
               src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2F080_space-music-arpeggios.wav?v=1579826328159" 
               type="audio/wav"
               className="clip"
               title="Cosmix Arpeggio"
-              id="Q">
+              loop>
             </audio>
           </button>
-          <button className="drum-pad" id="1" onClick={this.playSample}>W
+          <button className="fas fa-space-shuttle" id="1" onClick={this.playSample}>
             <audio 
               src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fpretty-tones-big-space.wav?v=1579825333307" 
               type="audio/wav"
               className="clip" 
               title="Big Space"
-              id="W">
+              loop>
             </audio>
           </button>
-          <button className="drum-pad" id="2" onClick={this.playSample}>E
+          <button className="fas fa-satellite" id="2" onClick={this.playSample}>
             <audio 
               src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2F105_scifi-spacetrucker.wav?v=1579826333884" 
               type="audio/wav"
               className="clip" 
               title="Universal Trucker"
-              id="E">
+              loop>
             </audio>
           </button>
-          <button className="drum-pad" id="3" onClick={this.playSample}>A
+        </div> 
+        <div className="row"> 
+          <button className="fas fa-meteor" id="3" onClick={this.playSample}>
             <audio 
               src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fabduction-in-alien-waters.wav?v=1579825416598" 
               type="audio/wav"
               className="clip" 
               title="Alien Waters"
-              id="A">
+              loop>
             </audio>
           </button>
-          <button className="drum-pad" id="4" onClick={this.playSample}>S
-            <audio 
-              src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fseizure-guitar-random-hammering.wav?v=1579825424077" 
-              type="audio/wav"
-              className="clip" 
-              title="Random Planet"
-              id="S">
-            </audio>
+          <button className="fas fa-pastafarianism" id="4" onClick={this.playSample}>
+          <audio 
+            src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fseizure-guitar-random-hammering.wav?v=1579825424077" 
+            type="audio/wav"
+            className="clip" 
+            title="Random Planet"
+            loop>
+          </audio>
           </button>
-          <button className="drum-pad" id="5" onClick={this.playSample}>D
+          <button className="fas fa-satellite-dish" id="5" onClick={this.playSample}>
             <audio 
               src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fearth-lightning.mp3?v=1579825441590" 
               type="audio/mpeg"
               className="clip" 
               title="Earth Lighting"
-              id="D">
+              loop>
             </audio>
           </button>
-          <button className="drum-pad" id="6" onClick={this.playSample}>Z
+        </div>
+        <div className="row">
+          <button className="fas fa-robot" id="6" onClick={this.playSample}>
             <audio 
               src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fdescending-plaintive-synth.wav?v=1579825458400" 
               type="audio/wav"
               className="clip" 
               title="Descending Star"
-              id="Z">
+              loop>
             </audio>
           </button>
-          <button className="drum-pad" id="7" onClick={this.playSample}>X
+          <button className="fas fa-globe-asia" id="7" onClick={this.playSample}>
             <audio 
               src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fgliding-synth-intro.wav?v=1579825463466" 
               type="audio/wav"
               className="clip" 
               title="Gliding Asteroid"
-              id="X">
+              loop>
             </audio>
           </button>
-          <button className="drum-pad" id="8" onClick={this.playSample}>C
+          <button className="fas fa-rocket" id="8" onClick={this.playSample}>
             <audio 
               src="https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fflutter-by-echo-synth.wav?v=1579825467851" 
               type="audio/wav"
               className="clip" title="Nebula Echo"
-              id="C">
+              loop>
             </audio>
           </button>
         </div>
