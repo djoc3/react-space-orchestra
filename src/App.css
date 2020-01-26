@@ -25,3 +25,18 @@ button:focus {
   width: 300px;
   margin: 0px auto;
 }
+
+.stars {
+  background:#000 url(https://cdn.glitch.com/4e7dabcd-2531-4ebf-bee3-95f2c397572e%2Fstars.png?v=1580050436527) repeat top center;
+}
+
+.instructions {
+  padding: 30px;
+  font-family: Kanit;
+}
+
+footer {
+  color: #B0B0B0;
+  font-size: small;
+  padding-bottom: 30px;
+}
